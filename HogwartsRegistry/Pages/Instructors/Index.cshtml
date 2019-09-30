@@ -1,0 +1,46 @@
+﻿@page
+@model HogwartsRegistry.Pages.Instructors.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Instructors</h1>
+<br />
+<div class="row">
+    <div class="col-6">
+
+    </div>
+    <div class="col-6 text-right">
+        <a asp-page="InstructorCreate" class="btn btn-info">Add Instructor</a>
+    </div>
+</div>
+<br />
+<form method="post">
+    @if (Model.Instructors.Count() > 0)
+    {
+        <table class="table table-striped">
+            <tr class="table-secondary">
+                <th>@Html.DisplayNameFor(m => m.Instructors.FirstOrDefault().FirstName)</th>
+                <th>@Html.DisplayNameFor(m => m.Instructors.FirstOrDefault().LastName)</th>
+                <th>@Html.DisplayNameFor(m => m.Instructors.FirstOrDefault().Gender)</th>
+                <th></th>
+            </tr>
+            @foreach (var instructor in Model.Instructors)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => instructor.FirstName)</td>
+                    <td>@Html.DisplayFor(m => instructor.LastName)</td>
+                    <td>@Html.DisplayFor(m => instructor.Gender)</td>
+                    <td>
+                        <button asp-page-handler="Delete" asp-route-id="@instructor.Id" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this student?')">Delete</button>
+                        <a asp-route-id="@instructor.Id" asp-page="InstructorEdit" class="btn btn-success btn-sm">Edit</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>No instructors in the registry.</p>
+    }
+</form>

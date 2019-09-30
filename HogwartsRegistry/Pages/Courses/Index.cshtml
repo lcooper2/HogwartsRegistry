@@ -1,0 +1,48 @@
+﻿@page
+@model HogwartsRegistry.Pages.Courses.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Courses</h1>
+<br />
+<div class="row">
+    <div class="col-6">
+
+    </div>
+    <div class="col-6 text-right">
+        <a asp-page="CourseCreate" class="btn btn-info">Add Course</a>
+    </div>
+</div>
+<br />
+<form method="post">
+    @if (Model.Courses.Count() > 0)
+    {
+        <table class="table table-striped">
+            <tr class="table-secondary">
+                <th>@Html.DisplayNameFor(m => m.Courses.FirstOrDefault().CRN)</th>
+                <th>@Html.DisplayNameFor(m => m.Courses.FirstOrDefault().Subject)</th>
+                <th>@Html.DisplayNameFor(m => m.Courses.FirstOrDefault().StartTime)</th>
+                <th>@Html.DisplayNameFor(m => m.Courses.FirstOrDefault().EndTime)</th>
+                <th></th>
+            </tr>
+            @foreach (var course in Model.Courses)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => course.CRN)</td>
+                    <td>@Html.DisplayFor(m => course.Subject)</td>
+                    <td>@Html.DisplayFor(m => course.StartTime)</td>
+                    <td>@Html.DisplayFor(m => course.EndTime)</td>
+                    <td>
+                        <button asp-page-handler="Delete" asp-route-id="@course.Id" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this student?')">Delete</button>
+                        <a asp-route-id="@course.Id" asp-page="CourseEdit" class="btn btn-success btn-sm">Edit</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>No courses in the registry.</p>
+    }
+</form>

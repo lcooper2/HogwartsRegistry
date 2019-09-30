@@ -1,0 +1,68 @@
+﻿@page
+@model HogwartsRegistry.Pages.Students.StudentEditModel
+
+@{
+    ViewData["Title"] = "StudentEdit";
+}
+
+<h1>StudentEdit</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Student.FirstName" class="control-label"></label>
+                <input asp-for="Student.FirstName" class="form-control" />
+                <span asp-validation-for="Student.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.LastName" class="control-label"></label>
+                <input asp-for="Student.LastName" class="form-control" />
+                <span asp-validation-for="Student.LastName" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Student.Id" />
+            <div class="form-group">
+                <label asp-for="Student.StudentId" class="control-label"></label>
+                <input asp-for="Student.StudentId" class="form-control" />
+                <span asp-validation-for="Student.StudentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.Gender" class="control-label"></label>
+                <select asp-for="Student.Gender" class="form-control">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+                <span asp-validation-for="Student.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.Year" class="control-label"></label>
+                <input asp-for="Student.Year" class="form-control" />
+                <span asp-validation-for="Student.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Student.IsMudBlood" /> @Html.DisplayNameFor(model => model.Student.IsMudBlood)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.House" class="control-label"></label>
+                <input asp-for="Student.House" class="form-control" />
+                <span asp-validation-for="Student.House" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
