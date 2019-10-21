@@ -32,10 +32,10 @@ C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netco
 C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\Razor\Pages\Students\Index.g.cshtml.cs
 C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\Razor\Pages\Students\StudentCreate.g.cshtml.cs
 C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\Razor\Pages\Students\StudentEdit.g.cshtml.cs
-C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\HogwartsRegistry.csprojAssemblyReference.cache
 C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\Razor\Pages\Instructors\Index.g.cshtml.cs
 C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\Razor\Pages\Instructors\InstructorCreate.g.cshtml.cs
 C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\Razor\Pages\Instructors\InstructorEdit.g.cshtml.cs
 C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\Razor\Pages\Courses\Index.g.cshtml.cs
 C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\Razor\Pages\Courses\CourseCreate.g.cshtml.cs
 C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\Razor\Pages\Courses\CourseEdit.g.cshtml.cs
+C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\HogwartsRegistry.csprojAssemblyReference.cache
