@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAN+IHcPnBj0G52z2MzCnULQAAAAACAAAAAAAQZgAAAAEAACAAAAB/LddSsTHpPVb/y6+6JuH/o5APN3VUPAFnf1YdDqCE7AAAAAAOgAAAAAIAACAAAAAEyLN8ESLKge4H/PDCJJaHcLEMOu04ADKTH4z7C7Rs7iAAAAD3Rf3eWsKhko4f1k56trstOQRrlD6tqB0x3s/nz6xjTEAAAACVqV2LkU2m0RlG5VtLyuWcYnPXSEn6ay9ASKMAXhZx4J/vqmEvhH1pQgiIDhzK+0s1W2HJX4OcYL6+IGL6gdxs</EncryptedPassword>
+    <_PublishTargetUrl>ftp://students.cs.weber.edu:4211/site2</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>09/25/2019 12:51:46</publishTime>
+    </File>
+    <File Include="dotnet-aspnet-codegenerator-design.dll">
+      <publishTime>09/24/2019 19:58:14</publishTime>
+    </File>
+    <File Include="HogwartsRegistry.deps.json">
+      <publishTime>10/30/2019 12:10:23</publishTime>
+    </File>
+    <File Include="HogwartsRegistry.dll">
+      <publishTime>10/30/2019 12:10:21</publishTime>
+    </File>
+    <File Include="HogwartsRegistry.pdb">
+      <publishTime>10/30/2019 12:10:21</publishTime>
+    </File>
+    <File Include="HogwartsRegistry.runtimeconfig.json">
+      <publishTime>10/30/2019 12:10:23</publishTime>
+    </File>
+    <File Include="HogwartsRegistry.Views.dll">
+      <publishTime>10/30/2019 12:10:22</publishTime>
+    </File>
+    <File Include="HogwartsRegistry.Views.pdb">
+      <publishTime>10/30/2019 12:10:22</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.CSharp.Workspaces.dll">
+      <publishTime>09/19/2019 11:01:10</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.Workspaces.dll">
+      <publishTime>09/19/2019 11:01:12</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll">
+      <publishTime>09/24/2019 19:57:40</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Core.dll">
+      <publishTime>09/24/2019 19:57:46</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.dll">
+      <publishTime>09/24/2019 19:57:50</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll">
+      <publishTime>09/24/2019 19:57:48</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll">
+      <publishTime>09/24/2019 19:57:42</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll">
+      <publishTime>09/24/2019 19:57:42</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll">
+      <publishTime>09/24/2019 19:57:52</publishTime>
+    </File>
+    <File Include="NuGet.Frameworks.dll">
+      <publishTime>09/19/2019 11:01:08</publishTime>
+    </File>
+    <File Include="System.Composition.AttributedModel.dll">
+      <publishTime>09/19/2019 11:01:11</publishTime>
+    </File>
+    <File Include="System.Composition.Convention.dll">
+      <publishTime>09/19/2019 11:01:11</publishTime>
+    </File>
+    <File Include="System.Composition.Hosting.dll">
+      <publishTime>09/19/2019 11:01:12</publishTime>
+    </File>
+    <File Include="System.Composition.Runtime.dll">
+      <publishTime>09/19/2019 11:01:12</publishTime>
+    </File>
+    <File Include="System.Composition.TypedParts.dll">
+      <publishTime>09/19/2019 11:01:12</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>10/30/2019 12:10:23</publishTime>
+    </File>
+    <File Include="wwwroot/css/site.css">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.ico">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/js/site.js">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css.map">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js.map">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/LICENSE">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/css/all.css">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/css/all.min.css">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/css/brands.css">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/css/brands.min.css">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/css/fontawesome.css">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/css/fontawesome.min.css">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/css/regular.css">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/css/regular.min.css">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/css/solid.css">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/css/solid.min.css">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/css/svg-with-js.css">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/css/svg-with-js.min.css">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/css/v4-shims.css">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/css/v4-shims.min.css">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/js/all.js">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/js/all.min.js">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/js/brands.js">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/js/brands.min.js">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/js/conflict-detection.js">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/js/conflict-detection.min.js">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/js/fontawesome.js">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/js/fontawesome.min.js">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/js/regular.js">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/js/regular.min.js">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/js/solid.js">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/js/solid.min.js">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/js/v4-shims.js">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/js/v4-shims.min.js">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/sprites/brands.svg">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/sprites/regular.svg">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/sprites/solid.svg">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/webfonts/fa-brands-400.eot">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/webfonts/fa-brands-400.svg">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/webfonts/fa-brands-400.ttf">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/webfonts/fa-brands-400.woff">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/webfonts/fa-brands-400.woff2">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/webfonts/fa-regular-400.eot">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/webfonts/fa-regular-400.svg">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/webfonts/fa-regular-400.ttf">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/webfonts/fa-regular-400.woff">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/webfonts/fa-regular-400.woff2">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/webfonts/fa-solid-900.eot">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/webfonts/fa-solid-900.svg">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/webfonts/fa-solid-900.ttf">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/webfonts/fa-solid-900.woff">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/font-awesome/webfonts/fa-solid-900.woff2">
+      <publishTime>09/16/2019 11:47:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.js">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.min.js">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.js">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.min.js">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/LICENSE.md">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.js">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.js">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.map">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/LICENSE.txt">
+      <publishTime>09/25/2019 12:14:10</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
