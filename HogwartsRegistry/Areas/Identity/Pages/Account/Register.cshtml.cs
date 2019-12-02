@@ -87,6 +87,8 @@ namespace HogwartsRegistry.Areas.Identity.Pages.Account
                 var user = new Student {
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
+                    Email = Input.Email,
+                    UserName = Input.Email,
                     Gender = Input.Gender,
                     Year = Input.Year,
                     House = Input.House,
