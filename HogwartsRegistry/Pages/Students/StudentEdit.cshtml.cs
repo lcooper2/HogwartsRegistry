@@ -23,7 +23,7 @@ namespace HogwartsRegistry.Pages.Students
         [BindProperty]
         public Student Student { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
             if (id == null)
             {
@@ -54,7 +54,7 @@ namespace HogwartsRegistry.Pages.Students
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!StudentExists(Student.Id))
+                if (!StudentExists(Int32.Parse(Student.Id)))
                 {
                     return NotFound();
                 }
@@ -69,7 +69,7 @@ namespace HogwartsRegistry.Pages.Students
 
         private bool StudentExists(int id)
         {
-            return _context.Students.Any(e => e.Id == id);
+            return _context.Students.Any(e => e.Id == id.ToString());
         }
     }
 }

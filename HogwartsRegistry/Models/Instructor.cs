@@ -8,10 +8,9 @@ namespace HogwartsRegistry.Models
 {
     public class Instructor
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        [Key]
-        public int Id { get; set; }
         public int InstructorId { get; set; }
         public char Gender { get; set; }
     }

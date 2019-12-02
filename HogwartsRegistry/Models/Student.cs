@@ -11,8 +11,6 @@ namespace HogwartsRegistry.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int Id { get; set; }
-        [Key]
         public int StudentId { get; set; }
         public char Gender { get; set; }
         public int Year { get; set; }

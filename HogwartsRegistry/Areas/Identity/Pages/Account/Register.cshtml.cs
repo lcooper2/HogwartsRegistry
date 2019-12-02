@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using HogwartsRegistry.Utility;
+using HogwartsRegistry.Models;
 
 namespace HogwartsRegistry.Areas.Identity.Pages.Account
 {
@@ -66,10 +67,11 @@ namespace HogwartsRegistry.Areas.Identity.Pages.Account
             public string FirstName { get; set; }
             [Required]
             public string LastName { get; set; }
-            public string Gender { get; set; }
+            public char Gender { get; set; }
             public int Year { get; set; }
             public string House { get; set; }
             public bool IsMudBlood { get; set; }
+            public bool IsAdmin { get; set; }
         }
 
         public void OnGet(string returnUrl = null)
@@ -82,10 +84,29 @@ namespace HogwartsRegistry.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new Student {
+                    FirstName = Input.FirstName,
+                    LastName = Input.LastName,
+                    Gender = Input.Gender,
+                    Year = Input.Year,
+                    House = Input.House,
+                    IsMudBlood = Input.IsMudBlood
+                };
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
+
                 if (result.Succeeded)
                 {
+                    // If our user roles don't exist in the database, then create them.
+                    if(!await _roleManager.RoleExistsAsync(SD.AdminEndUser))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(SD.AdminEndUser));
+                    }
+
+                    if(!await _roleManager.RoleExistsAsync(SD.CustomerEndUser))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(SD.CustomerEndUser));
+                    }
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

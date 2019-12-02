@@ -4,6 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
+    <div class="scratches p-4">
     <form method="get">
         <br />
         <div class="row">
@@ -11,7 +12,7 @@
                 <h2 class="text-info">Students</h2>
             </div>
             <div class="col-6 text-right">
-                <a asp-page="StudentCreate" class="btn btn-info">Add Student</a>
+                <a asp-page="StudentCreate" class="btn btn-info"><i class="fa fa-plus"></i> Add Student</a>
             </div>
         </div>
         <br />
@@ -74,6 +75,7 @@
                     <th>@Html.DisplayNameFor(m => m.StudentListViewModel.StudentList[0].Year)</th>
                     <th>@Html.DisplayNameFor(m => m.StudentListViewModel.StudentList[0].House)</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 @foreach (var student in Model.StudentListViewModel.StudentList)
                 {
@@ -84,8 +86,9 @@
                         <td>@Html.DisplayFor(m => student.Year)</td>
                         <td>@Html.DisplayFor(m => student.House)</td>
                         <td>
-                            <button asp-page-handler="Delete" asp-route-id="@student.Id" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this student?')">Delete</button>
-                            <a asp-route-id="@student.Id" asp-page="StudentEdit" class="btn btn-success btn-sm">Edit</a>
+                            <button asp-page-handler="Delete" asp-route-id="@student.Id" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this student?')"><i class="fa fa-trash"></i> Delete</button>
+                            <a asp-route-id="@student.Id" asp-page="StudentEdit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                            <a asp-page="StudentClasses" asp-route-id="@student.Id" class="btn btn-info btn-sm"><i class="fa fa-list"></i> Classes</a>
                         </td>
                     </tr>
                 }
@@ -102,3 +105,4 @@
             <p>No students in the registry.</p>
         }
     </form>
+        </div>

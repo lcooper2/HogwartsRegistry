@@ -18,21 +18,22 @@
 <form method="post">
     @if (Model.Courses.Count() > 0)
     {
+        <div class="scratches">
         <table class="table table-striped">
             <tr class="table-secondary">
-                <th>@Html.DisplayNameFor(m => m.Courses.FirstOrDefault().CRN)</th>
-                <th>@Html.DisplayNameFor(m => m.Courses.FirstOrDefault().Subject)</th>
-                <th>@Html.DisplayNameFor(m => m.Courses.FirstOrDefault().StartTime)</th>
-                <th>@Html.DisplayNameFor(m => m.Courses.FirstOrDefault().EndTime)</th>
+                <th>@Html.DisplayNameFor(m => m.Courses.FirstOrDefault().DepartmentPrefix)</th>
+                <th>@Html.DisplayNameFor(m => m.Courses.FirstOrDefault().Department)</th>
+                <th>@Html.DisplayNameFor(m => m.Courses.FirstOrDefault().CourseNum)</th>
+                <th>@Html.DisplayNameFor(m => m.Courses.FirstOrDefault().CourseTitle)</th>
                 <th></th>
             </tr>
             @foreach (var course in Model.Courses)
             {
                 <tr>
-                    <td>@Html.DisplayFor(m => course.CRN)</td>
-                    <td>@Html.DisplayFor(m => course.Subject)</td>
-                    <td>@Html.DisplayFor(m => course.StartTime)</td>
-                    <td>@Html.DisplayFor(m => course.EndTime)</td>
+                    <td>@Html.DisplayFor(m => course.DepartmentPrefix)</td>
+                    <td>@Html.DisplayFor(m => course.Department)</td>
+                    <td>@Html.DisplayFor(m => course.CourseNum)</td>
+                    <td>@Html.DisplayFor(m => course.CourseTitle)</td>
                     <td>
                         <button asp-page-handler="Delete" asp-route-id="@course.Id" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this student?')">Delete</button>
                         <a asp-route-id="@course.Id" asp-page="CourseEdit" class="btn btn-success btn-sm">Edit</a>
@@ -40,6 +41,7 @@
                 </tr>
             }
         </table>
+            </div>
     }
     else
     {
