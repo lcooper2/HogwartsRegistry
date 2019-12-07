@@ -4,5 +4,49 @@
     ViewData["Title"] = "StudentClasses";
 }
 
-<h1>StudentClasses</h1>
 
+@if (@Model.studentClasses.Count > 0)
+{
+    <br />
+    <div class="scratches">
+        <h1>My Classes</h1>
+        <div class="row">
+            <div class="col-6 text-left">
+                <h3>Fall 2019 Schedule</h3>
+            </div>
+            <div class="col-6 text-right">
+                <a asp-page="/Students/Register" class="btn btn-success"><i class="fa fa-user-graduate"></i> Register for Classes</a>
+            </div>
+        </div>
+        <table class="table table-striped border">
+            <tr class="table table-secondary">
+                <th>Department</th>
+                <th>Course Number</th>
+                <th>Course Title</th>
+                <th>Instructor</th>
+                <th></th>
+            </tr>
+
+            @foreach (var cls in Model.studentClasses)
+            {
+                <tr>
+                    <td>@cls.Class.Course.DepartmentPrefix</td>
+                    <td>@cls.Class.Course.CourseNum</td>
+                    <td>@cls.Class.Course.CourseTitle</td>
+                    <td>@cls.Class.Instructor.FirstName @cls.Class.Instructor.LastName</td>
+                </tr>
+            }
+
+        </table>
+    </div>
+}
+else
+{
+    
+<div class="scratches p-2">
+    <h1>No Classes Found</h1>
+    <p>You are not curently enrolled in any classes.</p>
+    <a asp-page="/Students/Register" class="btn btn-success"><i class="fa fa-user-graduate"></i> Register for Classes</a>
+    <br />
+</div>
+}

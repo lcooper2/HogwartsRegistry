@@ -88,6 +88,25 @@ namespace HogwartsRegistry.Data.Migrations
                     b.ToTable("Instructors");
                 });
 
+            modelBuilder.Entity("HogwartsRegistry.Models.InstructorClasses", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ClassId");
+
+                    b.Property<int>("InstructorId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClassId");
+
+                    b.HasIndex("InstructorId");
+
+                    b.ToTable("InstructorClasses");
+                });
+
             modelBuilder.Entity("HogwartsRegistry.Models.StudentClasses", b =>
                 {
                     b.Property<int>("Id")
@@ -301,6 +320,19 @@ namespace HogwartsRegistry.Data.Migrations
                     b.HasOne("HogwartsRegistry.Models.Course", "Course")
                         .WithMany()
                         .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("HogwartsRegistry.Models.Instructor", "Instructor")
+                        .WithMany()
+                        .HasForeignKey("InstructorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("HogwartsRegistry.Models.InstructorClasses", b =>
+                {
+                    b.HasOne("HogwartsRegistry.Models.Class", "Class")
+                        .WithMany()
+                        .HasForeignKey("ClassId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("HogwartsRegistry.Models.Instructor", "Instructor")

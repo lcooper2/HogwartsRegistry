@@ -24,17 +24,14 @@
                 <span asp-validation-for="Instructor.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Instructor.InstructorId" class="control-label"></label>
-                <input asp-for="Instructor.InstructorId" class="form-control" />
-                <span asp-validation-for="Instructor.InstructorId" class="text-danger"></span>
+                <label asp-for="Instructor.Department" class="control-label"></label>
+                <input asp-for="Instructor.Department" class="form-control" />
+                <span asp-validation-for="Instructor.Department" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Instructor.Gender" class="control-label"></label>
-                <select asp-for="Instructor.Gender" class="form-control">
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                </select>
-                <span asp-validation-for="Instructor.Gender" class="text-danger"></span>
+                <label asp-for="Instructor.NumYearsWorked" class="control-label"></label>
+                <input asp-for="Instructor.NumYearsWorked" class="form-control" />
+                <span asp-validation-for="Instructor.NumYearsWorked" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

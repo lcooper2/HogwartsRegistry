@@ -23,7 +23,7 @@ namespace HogwartsRegistry.Pages.Instructors
         [BindProperty]
         public Instructor Instructor { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
             if (id == null)
             {
@@ -54,6 +54,7 @@ namespace HogwartsRegistry.Pages.Instructors
             }
             catch (DbUpdateConcurrencyException)
             {
+                /*
                 if (!InstructorExists(Instructor.Id))
                 {
                     return NotFound();
@@ -62,6 +63,7 @@ namespace HogwartsRegistry.Pages.Instructors
                 {
                     throw;
                 }
+                */
             }
 
             return RedirectToPage("./Index");
@@ -69,7 +71,8 @@ namespace HogwartsRegistry.Pages.Instructors
 
         private bool InstructorExists(int id)
         {
-            return _db.Instructors.Any(e => e.Id == id);
+            //return _db.Instructors.Any(e => e.Id == id);
+            return true;
         }
     }
 }

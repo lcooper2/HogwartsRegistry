@@ -1,0 +1,62 @@
+﻿@page
+@model HogwartsRegistry.Pages.Students.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+@if (Model.studentClasses.Count > 0)
+{
+    <div class="scratches">
+    <!-- Display the classes the student is enrolled in-->
+    <h3>My Schedule</h3>
+    <form method="post">
+        <table class="table table-striped">
+            <tr class="table table-secondary">
+                <th>@Html.DisplayNameFor(i => i.otherClasses.FirstOrDefault().Course.Department)</th>
+                <th>@Html.DisplayNameFor(i => i.otherClasses.FirstOrDefault().Course.CourseNum)</th>
+                <th>@Html.DisplayNameFor(i => i.otherClasses.FirstOrDefault().Course.CourseTitle)</th>
+                <th></th>
+            </tr>
+            @foreach (var cls in Model.studentClasses)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(i => cls.Class.Course.DepartmentPrefix)</td>
+                    <td>@Html.DisplayFor(i => cls.Class.Course.CourseNum)</td>
+                    <td>@Html.DisplayFor(i => cls.Class.Course.CourseTitle)</td>
+                    <td><button type="submit" asp-page-handler="Delete" asp-route-classId="@cls.ClassId" class="btn btn-danger text-white">Delete</button></td>
+                </tr>
+            }
+        </table>
+    </form>
+        </div>
+}
+
+<br />
+<div class="scratches">
+    <hr />
+
+    <!-- Display every other class besides the ones the student is enrolled in-->
+    <h3>Available Classes</h3>
+    <form method="post">
+        <table class="table table-striped">
+            <tr class="table table-secondary">
+                <th>@Html.DisplayNameFor(i => i.otherClasses.FirstOrDefault().Course.Department)</th>
+                <th>@Html.DisplayNameFor(i => i.otherClasses.FirstOrDefault().Course.CourseNum)</th>
+                <th>@Html.DisplayNameFor(i => i.otherClasses.FirstOrDefault().Course.CourseTitle)</th>
+                <th></th>
+            </tr>
+            @foreach (var cls in Model.otherClasses)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(i => cls.Course.DepartmentPrefix)</td>
+                    <td>@Html.DisplayFor(i => cls.Course.CourseNum)</td>
+                    <td>@Html.DisplayFor(i => cls.Course.CourseTitle)</td>
+                    <td><button asp-page-handler="Enroll" asp-route-classId="@cls.Id" class="btn btn-info text-white">Enroll</button></td>
+                </tr>
+            }
+        </table>
+    </form>
+</div>
+

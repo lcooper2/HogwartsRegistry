@@ -75,3 +75,5 @@ C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netco
 C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewImports.cshtml.g.cs
 C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewStart.cshtml.g.cs
 C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\Razor\Pages\Students\StudentClasses.cshtml.g.cs
+C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\Razor\Pages\Students\Register.cshtml.g.cs
+C:\Users\lcooper2\source\repos\HogwartsRegistry\HogwartsRegistry\obj\Debug\netcoreapp2.2\Razor\Pages\Instructors\Classes.cshtml.g.cs

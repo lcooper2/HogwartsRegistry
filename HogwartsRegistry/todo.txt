@@ -1,4 +1,3 @@
 ﻿Need to add linking table between instructor and class
 Student navbar = Home, My Classes(register for classes, view classes)
 Instructor navbar = Home, My classes(view students -> view grades, add/drop students, add/drop classes)
-Add user roles
