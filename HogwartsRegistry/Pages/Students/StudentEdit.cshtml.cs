@@ -46,20 +46,29 @@ namespace HogwartsRegistry.Pages.Students
                 return Page();
             }
 
-            _context.Attach(Student).State = EntityState.Modified;
 
             try
             {
+                Student dbStudent = await _context.Students.FirstOrDefaultAsync(i => i.Id == Student.Id);
+                dbStudent.FirstName = Student.FirstName;
+                dbStudent.LastName = Student.LastName;
+                dbStudent.Year = Student.Year;
+                dbStudent.House = Student.House;
+                dbStudent.IsMudBlood = Student.IsMudBlood;
+                dbStudent.StudentId = Student.StudentId;
+                dbStudent.Gender = Student.Gender;
+
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException e)
             {
-                if (!StudentExists(Int32.Parse(Student.Id)))
+                if (!StudentExists(Student.Id))
                 {
                     return NotFound();
                 }
                 else
                 {
+                    Console.WriteLine(e.StackTrace);
                     throw;
                 }
             }
@@ -67,7 +76,7 @@ namespace HogwartsRegistry.Pages.Students
             return RedirectToPage("./Index");
         }
 
-        private bool StudentExists(int id)
+        private bool StudentExists(string id)
         {
             return _context.Students.Any(e => e.Id == id.ToString());
         }

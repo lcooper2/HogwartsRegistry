@@ -38,33 +38,21 @@ namespace HogwartsRegistry.Pages.Students
             {
                 param.Append("&searchLastName=");
                 param.Append(searchLastName);
+                StudentListViewModel.StudentList = StudentListViewModel.StudentList.Where(s => s.LastName == searchLastName).ToList();
             }
-
 
             if (searchYear != null)
             {
                 param.Append("&searchYear=");
                 param.Append(searchYear);
+                StudentListViewModel.StudentList = StudentListViewModel.StudentList.Where(s => s.Year == Convert.ToInt32(searchYear)).ToList();
             }
 
-            if (searchHouse != null)
+            if(searchHouse != null)
             {
-                StudentListViewModel.StudentList = await _db.Students
-                              .Where(u => u.House.ToLower().Contains(searchHouse.ToLower())).ToListAsync();
-            }
-
-            else
-                if (searchLastName != null)
-            {
-                StudentListViewModel.StudentList = await _db.Students
-                              .Where(u => u.LastName.ToLower().Contains(searchLastName.ToLower())).ToListAsync();
-            }
-
-            else
-                if (searchYear != null)
-            {
-                StudentListViewModel.StudentList = await _db.Students
-                              .Where(u => u.Year == Int32.Parse(searchYear)).ToListAsync();
+                param.Append("&searchHouse=");
+                param.Append(searchHouse);
+                StudentListViewModel.StudentList = StudentListViewModel.StudentList.Where(s => s.House == searchHouse).ToList();
             }
 
             var count = StudentListViewModel.StudentList.Count;
@@ -87,8 +75,12 @@ namespace HogwartsRegistry.Pages.Students
 
 
 
-        public async Task<IActionResult> OnPostDelete(int id)
+        public async Task<IActionResult> OnPostDelete(string id)
         {
+            // Delete all student enrollments before deleting the student
+            List<StudentClasses> classes = _db.StudentClasses.Where(s => s.StudentId == id).ToList();
+            _db.RemoveRange(classes);
+
             var student = await _db.Students.FindAsync(id);
             if(student == null)
             {

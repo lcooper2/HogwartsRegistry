@@ -33,7 +33,10 @@ namespace HogwartsRegistry.Pages.Students
             {
                 return Page();
             }
-
+            // Select can only pass strings so convert it to bool
+            Student.Gender = Convert.ToBoolean(Request.Form["Gender"]); 
+            Random random = new Random();
+            Student.StudentId = random.Next(10000000, 99999999); // Randomly generate the student a studentId
             _context.Students.Add(Student);
             await _context.SaveChangesAsync();
 

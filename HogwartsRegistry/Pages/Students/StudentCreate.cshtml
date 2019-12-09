@@ -31,8 +31,8 @@
             <div class="form-group">
                 <label asp-for="Student.Gender" class="control-label"></label>
                 <select asp-for="Student.Gender" class="form-control">
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
+                    <option value="true">Male</option>
+                    <option value="false">Female</option>
                 </select>
                 <span asp-validation-for="Student.Gender" class="text-danger"></span>
             </div>
@@ -48,7 +48,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Student.House" class="control-label"></label>
-                <input asp-for="Student.House" class="form-control" />
+                <select class="form-control" asp-for="Student.House">
+                    <option>Gryffindor</option>
+                    <option>Hufflepuff</option>
+                    <option>Ravenclaw</option>
+                    <option>Slytherin</option>
+                </select>
                 <span asp-validation-for="Student.House" class="text-danger"></span>
             </div>
             <div class="form-group">

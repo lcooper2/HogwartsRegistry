@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace HogwartsRegistry.Models
 {
-    public class Instructor : IdentityUser
+    public class Instructor : ApplicationUser
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
         public string Department { get; set; }
         public int NumYearsWorked { get; set; }
     }

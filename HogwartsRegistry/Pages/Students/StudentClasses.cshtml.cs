@@ -39,17 +39,6 @@ namespace HogwartsRegistry.Pages.Students
                                 .Where(s => s.StudentId == studentId)
                                 .ToList();
             
-            // How to write this in linq?
-            /*
-            select s.Id, s.firstName, s.lastName, co.DepartmentPrefix, co.CourseNum, CourseTitle
-            from StudentClasses sc
-            INNER JOIN Class c on sc.ClassId = c.Id
-            INNER JOIN Course co on c.CourseId = co.Id
-            INNER JOIN Student s on sc.StudentId = s.Id
-            WHERE sc.StudentId = studentId
-            */
-
-            
         }
     }
 }

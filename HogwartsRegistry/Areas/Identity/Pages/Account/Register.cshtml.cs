@@ -67,7 +67,7 @@ namespace HogwartsRegistry.Areas.Identity.Pages.Account
             public string FirstName { get; set; }
             [Required]
             public string LastName { get; set; }
-            public char Gender { get; set; }
+            public bool Gender { get; set; }
             public int Year { get; set; }
             public string House { get; set; }
             public bool IsMudBlood { get; set; }
@@ -82,18 +82,32 @@ namespace HogwartsRegistry.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
+            IdentityUser user = new IdentityUser();
             if (ModelState.IsValid)
             {
-                var user = new Student {
-                    FirstName = Input.FirstName,
-                    LastName = Input.LastName,
-                    Email = Input.Email,
-                    UserName = Input.Email,
-                    Gender = Input.Gender,
-                    Year = Input.Year,
-                    House = Input.House,
-                    IsMudBlood = Input.IsMudBlood
-                };
+                if(Input.IsAdmin)
+                {
+                    user = new Instructor
+                    {
+                        FirstName = Input.FirstName,
+                        LastName = Input.LastName,
+                        Email = Input.Email,
+                        UserName = Input.Email,
+                        Gender = Convert.ToBoolean(Input.Gender),
+                    };
+                }
+                else
+                {
+                    user = new Student
+                    {
+                        FirstName = Input.FirstName,
+                        LastName = Input.LastName,
+                        Email = Input.Email,
+                        UserName = Input.Email,
+                        Gender = Convert.ToBoolean(Input.Gender),
+                    };
+                }
+                
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
@@ -109,6 +123,16 @@ namespace HogwartsRegistry.Areas.Identity.Pages.Account
                     {
                         await _roleManager.CreateAsync(new IdentityRole(SD.CustomerEndUser));
                     }
+
+                    if (Input.IsAdmin)
+                    {
+                        await _userManager.AddToRoleAsync(user, SD.AdminEndUser);
+                    }
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, SD.CustomerEndUser);
+                    }
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

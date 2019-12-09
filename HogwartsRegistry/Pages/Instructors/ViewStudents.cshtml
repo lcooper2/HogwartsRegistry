@@ -1,0 +1,119 @@
+﻿@page
+@model HogwartsRegistry.Pages.Instructors.ViewStudentsModel
+@{
+    ViewData["Title"] = "ViewStudents";
+}
+<div class="scratches">
+    <h1>View Students</h1>
+
+    <form method="get">
+        <table class="table table-striped">
+            <tr class="table table-secondary">
+                <th>@Html.DisplayNameFor(s => Model.InstrViewVM.Students[0].Id)</th>
+                <th>@Html.DisplayNameFor(s => Model.InstrViewVM.Students[0].Class.CRN)</th>
+                <th>@Html.DisplayNameFor(s => Model.InstrViewVM.Students[0].Class.Course.CourseNum)</th>
+                <th>@Html.DisplayNameFor(s => Model.InstrViewVM.Students[0].Class.Course.CourseTitle)</th>
+                <th>@Html.DisplayNameFor(s => Model.InstrViewVM.Students[0].Student.FirstName)</th>
+                <th>@Html.DisplayNameFor(s => Model.InstrViewVM.Students[0].Student.LastName)</th>
+                <th></th>
+            </tr>
+            @foreach (var stud in Model.InstrViewVM.Students)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(s => stud.Id)</td>
+                    <td>@Html.DisplayFor(s => stud.Class.CRN)</td>
+                    <td>@Html.DisplayFor(s => stud.Class.Course.CourseNum)</td>
+                    <td>@Html.DisplayFor(s => stud.Class.Course.CourseTitle)</td>
+                    <td>@Html.DisplayFor(s => stud.Student.FirstName)</td>
+                    <td>@Html.DisplayFor(s => stud.Student.LastName)</td>
+                    <td><button type="submit" class="btn btn-danger small" asp-page-handler="UnenrollStudent" asp-route-studentClassId="@stud.Id">Delete</button></td>
+                </tr>
+            }
+        </table>
+    </form>
+</div>
+<br />
+<br />
+<form method="get">
+    <div class="scratches">
+        <h3>Add a Student</h3>
+        <div class="border">
+            <div style="height: 60px;" class="container border border-secondary">
+                <div class="row">
+                    <div class="col-11">
+                        <div class="row" style="padding-top:10px">
+                            <div class="col-4">
+                                @Html.Editor("searchLastName", new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                @class = "form-control",
+                                placeholder = "Last Name..."
+                                }
+                                }
+                                )
+                            </div>
+                            <div class="col-4">
+                                @Html.Editor("searchYear", new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                @class = "form-control",
+                                placeholder = "Year..."
+                                }
+                                }
+                                )
+                            </div>
+                            <div class="col-4">
+                                @Html.Editor("searchHouse", new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                @class = "form-control",
+                                placeholder = "House..."
+                                }
+                                }
+                                )
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="row" style="padding-top:10px; padding-right:15px;">
+                            <button type="submit" name="submit" class="btn btn-info form-control" value="Search"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+</form>
+<form method="post">
+
+    <div class="scratches">
+    <table class="table table-striped">
+        <tr class="table table-secondary">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Year</th>
+            <th>House</th>
+            <th>@Model.InstrViewVM.Class.Id</th>
+        </tr>
+        @foreach (var stud in Model.InstrViewVM.otherStudents)
+        {
+            <tr>
+                <td>@Html.DisplayFor(s => stud.FirstName)</td>
+                <td>@Html.DisplayFor(s => stud.LastName)</td>
+                <td>@Html.DisplayFor(s => stud.Year)</td>
+                <td>@Html.DisplayFor(s => stud.House)</td>
+                <td><button type="submit" class="btn btn-info" asp-page-handler="Enroll" asp-route-studentId="@stud.Id"><i class="fa fa-plus"></i> Add</button></td>
+            </tr>
+        }
+        <tr>
+            <td colspan="5" class="text-right">
+                <div page-model="@Model.InstrViewVM.PagingInfo" asp-action="Index" page-class="btn border"
+                     page-class-normal="btn btn-light" page-class-selected="btn btn-info active" class="btn-group"></div>
+            </td>
+        </tr>
+    </table>
+    </div>
+</form>

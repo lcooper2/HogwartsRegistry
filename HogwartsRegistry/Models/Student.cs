@@ -7,12 +7,9 @@ using System.Threading.Tasks;
 
 namespace HogwartsRegistry.Models
 {
-    public class Student : IdentityUser
+    public class Student : ApplicationUser
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int StudentId { get; set; }
-        public char Gender { get; set; }
+        public int StudentId { get; set; } // Like a W number
         public int Year { get; set; }
         public bool IsMudBlood { get; set; }
         public string House { get; set; }

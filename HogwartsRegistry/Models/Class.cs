@@ -13,7 +13,7 @@ namespace HogwartsRegistry.Models
         public int Id { get; set; }
         public int CRN { get; set; }
         public string Term { get; set; }
-        public int InstructorId { get; set; }
+        public string InstructorId { get; set; }
         public int CourseId { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }

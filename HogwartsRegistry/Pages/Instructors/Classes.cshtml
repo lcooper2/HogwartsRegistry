@@ -3,6 +3,38 @@
 @{
     ViewData["Title"] = "Classes";
 }
-
-<h1>Classes</h1>
-
+<div class="scratches">
+    <div class="row">
+        <div class="col-6">
+            <h1>My Classes</h1>
+        </div>
+        <div class="col-6">
+            <a class="btn btn-info" asp-page="CreateClass"><i class="fa fa-plus"></i> Add a Class</a>
+        </div>
+    </div>
+    <form method="POST">
+        <table class="table table-striped">
+            <tr class="table table-secondary">
+                <th>@Html.DisplayNameFor(i => Model.Classes.FirstOrDefault().Id)</th>
+                <th>@Html.DisplayNameFor(i => Model.Classes.FirstOrDefault().CRN)</th>
+                <th>@Html.DisplayNameFor(i => Model.Classes.FirstOrDefault().Course.Department)</th>
+                <th>@Html.DisplayNameFor(i => Model.Classes.FirstOrDefault().Course.CourseNum)</th>
+                <th>@Html.DisplayNameFor(i => Model.Classes.FirstOrDefault().Course.CourseTitle)</th>
+                <th></th>
+            </tr>
+            @foreach (var cls in Model.Classes)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(i => cls.Id)</td>
+                    <td>@Html.DisplayFor(i => cls.CRN)</td>
+                    <td>@Html.DisplayFor(i => cls.Course.Department)</td>
+                    <td>@Html.DisplayFor(i => cls.Course.CourseNum)</td>
+                    <td>@Html.DisplayFor(i => cls.Course.CourseTitle)</td>
+                    <td><button type="submit" class="btn btn-danger small" asp-page-handler="Delete" asp-route-classId="@cls.Id"><i class="fa fa-trash"></i> Delete</button>
+                        <a class="btn btn-info small" asp-page="/Instructors/ViewStudents" asp-route-classId="@cls.Id">Students</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </form>
+</div>

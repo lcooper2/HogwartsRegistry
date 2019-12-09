@@ -12,7 +12,7 @@ namespace HogwartsRegistry.Utility
         public const string CustomerEndUser = "Customer";
 
         // Items Per Page
-        public const int PaginationUserPageSize = 2;
+        public const int PaginationUserPageSize = 4;
 
     }
 }

@@ -46,15 +46,20 @@ namespace HogwartsRegistry.Pages.Instructors
                 return Page();
             }
 
-            _db.Attach(Instructor).State = EntityState.Modified;
+            //_db.Attach(Instructor).State = EntityState.Modified;
 
             try
             {
+                Instructor instructorFromDb = await _db.Instructors.FirstOrDefaultAsync(m => m.Id == Instructor.Id);
+                instructorFromDb.FirstName = Instructor.FirstName;
+                instructorFromDb.LastName = Instructor.LastName;
+                instructorFromDb.Department = Instructor.Department;
+                instructorFromDb.NumYearsWorked = Instructor.NumYearsWorked;
                 await _db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                /*
+                
                 if (!InstructorExists(Instructor.Id))
                 {
                     return NotFound();
@@ -63,16 +68,15 @@ namespace HogwartsRegistry.Pages.Instructors
                 {
                     throw;
                 }
-                */
+                
             }
 
             return RedirectToPage("./Index");
         }
 
-        private bool InstructorExists(int id)
+        private bool InstructorExists(string id)
         {
-            //return _db.Instructors.Any(e => e.Id == id);
-            return true;
+            return _db.Instructors.Any(e => e.Id == id);
         }
     }
 }
