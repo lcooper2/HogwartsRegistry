@@ -5,12 +5,15 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using HogwartsRegistry.Data;
 using HogwartsRegistry.Models;
+using HogwartsRegistry.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace HogwartsRegistry.Pages.Instructors
 {
+    [Authorize(Roles = SD.AdminEndUser)]
     public class ClassesModel : PageModel
     {
         private readonly ApplicationDbContext _db;

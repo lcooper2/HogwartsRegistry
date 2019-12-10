@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using HogwartsRegistry.Data;
 using HogwartsRegistry.Models;
+using Microsoft.AspNetCore.Authorization;
+using HogwartsRegistry.Utility;
 
 namespace HogwartsRegistry.Pages.Instructors
 {
+    [Authorize(Roles = SD.AdminEndUser)]
     public class InstructorCreateModel : PageModel
     {
         private readonly HogwartsRegistry.Data.ApplicationDbContext _db;

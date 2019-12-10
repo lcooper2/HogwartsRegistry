@@ -8,12 +8,14 @@ using HogwartsRegistry.Data;
 using HogwartsRegistry.Models;
 using HogwartsRegistry.Models.ViewModels;
 using HogwartsRegistry.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace HogwartsRegistry.Pages.Instructors
 {
+    [Authorize(Roles = SD.AdminEndUser)]
     public class ViewStudentsModel : PageModel
     {
         private readonly ApplicationDbContext _db;
@@ -25,7 +27,8 @@ namespace HogwartsRegistry.Pages.Instructors
         
         [BindProperty]
         public InstructorViewStudentsViewModel InstrViewVM { get; set; }
-        public async Task<IActionResult> OnGet(int classId, int studentPage = 1, string searchLastName = null, string searchYear = null, string searchHouse = null)
+
+        public void OnGet(int classId)
         {
             var ClaimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = ClaimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
@@ -33,25 +36,46 @@ namespace HogwartsRegistry.Pages.Instructors
 
             InstrViewVM = new InstructorViewStudentsViewModel()
             {
-                Class = await _db.Classes.FirstOrDefaultAsync(i => i.Id == classId)
+                Class = _db.Classes.FirstOrDefault(i => i.Id == classId),
+                
             };
 
             // Get a list of people enrolled in the current class
             InstrViewVM.Students = _db.StudentClasses
                         .Include(s => s.Student)
                         .Include(s => s.Class.Course)
-                        .Where(s => (s.ClassId == classId))
+                        .Where(s => s.ClassId == classId)
                         .ToList();
 
             // Get the studentIds of everyone enrolled in the class
             List<string> studentIds = InstrViewVM.Students.Select(s => s.StudentId).ToList();
 
-            InstrViewVM.otherStudents =  
-                await _db.Students
-                //.Include(s => s.Class)
-                //.Include(s => s.Student)
-                .Where(s => !studentIds.Contains(s.Id)) // ***
-                .ToListAsync();
+            InstrViewVM.otherStudents = _db.Students
+                                        .Where(s => !studentIds.Contains(s.Id))
+                                        .ToList();
+
+            var count = InstrViewVM.otherStudents.Count;
+            StringBuilder param = new StringBuilder();
+            param.Append("/Students?studentPage=:");
+
+            InstrViewVM.PagingInfo = new PagingInfo()
+            {
+                CurrentPage = 1,
+                ItemsPerPage = SD.PaginationUserPageSize,
+                TotalItems = count,
+                UrlParameters = param.ToString()
+            };
+
+            InstrViewVM.otherStudents = InstrViewVM.otherStudents
+                .OrderBy(u => u.LastName)
+                .Skip((1 - 1) * SD.PaginationUserPageSize)
+                .Take(InstrViewVM.PagingInfo.ItemsPerPage).ToList();
+
+        }
+
+        public void OnGetSearch(int studentPage = 1, string searchLastName = null, string searchYear = null, string searchHouse = null)
+        {
+            
 
             StringBuilder param = new StringBuilder();
             param.Append("/Students?studentPage=:");
@@ -77,29 +101,13 @@ namespace HogwartsRegistry.Pages.Instructors
                 InstrViewVM.otherStudents = InstrViewVM.otherStudents.Where(s => s.House == searchHouse).ToList();
             }
 
-            var count = InstrViewVM.otherStudents.Count;
 
-            InstrViewVM.PagingInfo = new PagingInfo()
-            {
-                CurrentPage = studentPage,
-                ItemsPerPage = SD.PaginationUserPageSize,
-                TotalItems = count,
-                UrlParameters = param.ToString()
-            };
-
-            InstrViewVM.otherStudents = InstrViewVM.otherStudents
-                .OrderBy(u => u.LastName)
-                .Skip((studentPage - 1) * SD.PaginationUserPageSize)
-                .Take(InstrViewVM.PagingInfo.ItemsPerPage).ToList();
-
-            return Page();
         }
 
 
-        public async Task<IActionResult> OnGetUnenrollStudent(int studentClassId)
+        public async Task<IActionResult> OnPostUnenrollStudent(int studentClassId)
         {
-
-            StudentClasses classEntry = _db.StudentClasses.Find(studentClassId);
+            StudentClasses classEntry = await _db.StudentClasses.FindAsync(studentClassId);
             _db.StudentClasses.Remove(classEntry);
             await _db.SaveChangesAsync();
             return Page();

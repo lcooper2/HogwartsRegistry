@@ -7,12 +7,14 @@ using HogwartsRegistry.Data;
 using HogwartsRegistry.Models;
 using HogwartsRegistry.Models.ViewModels;
 using HogwartsRegistry.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace HogwartsRegistry.Pages.Students
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _db;

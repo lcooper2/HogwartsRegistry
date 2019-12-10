@@ -10,9 +10,12 @@
     <div class="col-6">
 
     </div>
+    @if (User.IsInRole(Utility.SD.AdminEndUser))
+    {
     <div class="col-6 text-right">
         <a asp-page="CourseCreate" class="btn btn-info">Add Course</a>
     </div>
+    }
 </div>
 <br />
 <form method="post">
@@ -25,7 +28,10 @@
                 <th>@Html.DisplayNameFor(m => m.Courses.FirstOrDefault().Department)</th>
                 <th>@Html.DisplayNameFor(m => m.Courses.FirstOrDefault().CourseNum)</th>
                 <th>@Html.DisplayNameFor(m => m.Courses.FirstOrDefault().CourseTitle)</th>
+                @if (User.IsInRole(Utility.SD.AdminEndUser))
+                {
                 <th></th>
+                }
             </tr>
             @foreach (var course in Model.Courses)
             {
@@ -34,10 +40,13 @@
                     <td>@Html.DisplayFor(m => course.Department)</td>
                     <td>@Html.DisplayFor(m => course.CourseNum)</td>
                     <td>@Html.DisplayFor(m => course.CourseTitle)</td>
+                    @if (User.IsInRole(Utility.SD.AdminEndUser))
+                    {
                     <td>
                         <button asp-page-handler="Delete" asp-route-id="@course.Id" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this student?')">Delete</button>
                         <a asp-route-id="@course.Id" asp-page="CourseEdit" class="btn btn-success btn-sm">Edit</a>
                     </td>
+                    }
                 </tr>
             }
         </table>

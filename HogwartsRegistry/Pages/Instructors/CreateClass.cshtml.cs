@@ -9,9 +9,12 @@ using HogwartsRegistry.Data;
 using HogwartsRegistry.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
+using HogwartsRegistry.Utility;
 
 namespace HogwartsRegistry.Pages.Instructors
 {
+    [Authorize(Roles = SD.AdminEndUser)]
     public class CreateClassModel : PageModel
     {
         private readonly HogwartsRegistry.Data.ApplicationDbContext _context;

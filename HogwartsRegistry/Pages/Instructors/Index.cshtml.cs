@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using HogwartsRegistry.Data;
 using HogwartsRegistry.Models;
 using HogwartsRegistry.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HogwartsRegistry.Pages.Instructors
 {
+    [Authorize(Roles = SD.AdminEndUser)]
     public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _db;
@@ -23,10 +25,10 @@ namespace HogwartsRegistry.Pages.Instructors
         }
 
         public IQueryable<Instructor> Instructors { get; set; }
-        public async Task<IActionResult> OnGet()
+        public void OnGet()
         {
             Instructors = _db.Instructors;
-            return Page();
+            //return Page();
         }
 
         public async Task<IActionResult> OnPostDelete(string id)

@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using HogwartsRegistry.Data;
 using HogwartsRegistry.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace HogwartsRegistry.Pages.Courses
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _db;

@@ -8,9 +8,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HogwartsRegistry.Data;
 using HogwartsRegistry.Models;
+using Microsoft.AspNetCore.Authorization;
+using HogwartsRegistry.Utility;
 
 namespace HogwartsRegistry.Pages.Courses
 {
+    [Authorize(Roles = SD.AdminEndUser)]
     public class CourseEditModel : PageModel
     {
         private readonly HogwartsRegistry.Data.ApplicationDbContext _db;
